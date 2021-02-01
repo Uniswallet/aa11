@@ -1,0 +1,24 @@
+
+
+[Settings]
+
+# All netfliy options should be defined here. UI options should stay empty.
+
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    # We don't use iframes. Block them.
+    X-Frame-Options = "SAMEORIGIN"
+    # Don't allow Mime-sniffing.
+    X-Content-Type-Options = "nosniff"
+    # Add reflective XSS protection.
+    X-XSS-Protection = "1; mode=block"
+    # Force HTTPS only.
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    # Only send referred when HTTPS is used.
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Disable certain magic features, lol.
+    Feature-Policy = "vibrate none; usermedia *; sync-xhr self"
+
+
